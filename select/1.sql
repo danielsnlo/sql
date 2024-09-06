@@ -7,7 +7,7 @@
 -- WHERE state = 'NY';
 -- ORDER BY state;
 
-use sql_invoicing;
-select * from invoices
-where payment_total > 0
-order by client_id;
+-- use sql_invoicing;
+-- select * from invoices
+-- where payment_total > 0
+-- order by client_id;

@@ -9,5 +9,8 @@ USE sql_store;
 --     points,
 --     points+100 as "points increased"
 -- FROM customers;
-
 select distinct state from customers;
+
+USE sql_store;
+select * from customers
+limit 5;

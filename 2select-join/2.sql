@@ -1,24 +1,35 @@
--- 1.uzdevums
-USE sql_hr;
-SELECT * from sql_hr.employees;
-
--- 2.uzdevums
+-- Using ALIAS
 USE sql_store;
-SELECT 
-	first_name,
-	last_name
-from sql_store.customers;
-
--- 3.uzdevums
-USE sql_hr;
-SELECT * from employees;
-WHERE reports_to is not null;
+SELECT
+	order_id,
+    o.customer_id,
+    c.customer_id,
+    c.first_name,
+    c.last_name
+FROM orders o
+JOIN customers c
+	ON o.customer_id = c.customer_id;
     
--- 4.uzdevums
+    
+-- Same result with 'USING'
 USE sql_store;
-select 
-    order_id,
-    customer_id,
-    status
-from sql_store.orders
-where Status = 1;
+SELECT
+	o.order_id,
+    c.customer_id,
+    c.first_name,
+    c.last_name
+FROM orders o
+JOIN customers c
+	USING (customer_id);
+    
+    
+-- kreisajā pusē paņemt customers
+USE sql_store;
+SELECT
+	o.order_id,
+    c.customer_id,
+    c.first_name,
+    c.last_name
+FROM orders o
+JOIN customers c
+	USING (customer_id);
